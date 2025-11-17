@@ -1,6 +1,6 @@
 //
 //  IntegrityChecker.h
-//  flutter_security_checker
+//  coruscant_security_checker
 //
 //  Created by WOO JIN HWANG on 2021/05/07.
 //

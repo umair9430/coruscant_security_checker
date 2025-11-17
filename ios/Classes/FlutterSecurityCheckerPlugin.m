@@ -1,15 +1,15 @@
 #import "FlutterSecurityCheckerPlugin.h"
 #import "security/IntegrityChecker.h"
-#if __has_include(<flutter_security_checker/flutter_security_checker-Swift.h>)
-#import <flutter_security_checker/flutter_security_checker-Swift.h>
+#if __has_include(<coruscant_security_checker/coruscant_security_checker-Swift.h>)
+#import <coruscant_security_checker/coruscant_security_checker-Swift.h>
 #else
-#import "flutter_security_checker-Swift.h"
+#import "coruscant_security_checker-Swift.h"
 #endif
 
 @implementation FlutterSecurityCheckerPlugin
 + (void)registerWithRegistrar:(NSObject<FlutterPluginRegistrar>*)registrar {
   FlutterMethodChannel* channel = [FlutterMethodChannel
-                                   methodChannelWithName:@"flutter_security_checker"
+                                   methodChannelWithName:@"coruscant_security_checker"
                                    binaryMessenger:[registrar messenger]];
   FlutterSecurityCheckerPlugin* instance = [[FlutterSecurityCheckerPlugin alloc] init];
   [registrar addMethodCallDelegate:instance channel:channel];

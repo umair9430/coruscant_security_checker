@@ -1,10 +1,11 @@
 import 'dart:async';
+
 import 'package:flutter/services.dart';
 
 /// Class that provides security check function.
-class FlutterSecurityChecker {
+class CoruscantSecurityChecker {
   static const MethodChannel _channel =
-      const MethodChannel('flutter_security_checker');
+      const MethodChannel('coruscant_security_checker');
 
   /// Check whether the device is rooted or jailBroken.
   static Future<bool> get isRooted async =>

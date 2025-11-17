@@ -1,5 +1,5 @@
+import 'package:coruscant_security_checker/coruscant_security_checker.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_security_checker/flutter_security_checker.dart';
 
 void main() => runApp(ExampleApp());
 
@@ -18,9 +18,10 @@ class _ExampleAppState extends State<ExampleApp> {
   void _onCheckButtonPressed() async {
     setState(() => _isChecking = true);
 
-    _isRooted = await FlutterSecurityChecker.isRooted;
-    _isRealDevice = await FlutterSecurityChecker.isRealDevice;
-    _hasCorrectlyInstalled = await FlutterSecurityChecker.hasCorrectlyInstalled;
+    _isRooted = await CoruscantSecurityChecker.isRooted;
+    _isRealDevice = await CoruscantSecurityChecker.isRealDevice;
+    _hasCorrectlyInstalled =
+        await CoruscantSecurityChecker.hasCorrectlyInstalled;
 
     setState(() => _isChecking = false);
   }
