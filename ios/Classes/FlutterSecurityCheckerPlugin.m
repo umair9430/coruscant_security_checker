@@ -1,6 +1,10 @@
 #import "FlutterSecurityCheckerPlugin.h"
-#import "security/JailBreakChecker.h"
 #import "security/IntegrityChecker.h"
+#if __has_include(<flutter_security_checker/flutter_security_checker-Swift.h>)
+#import <flutter_security_checker/flutter_security_checker-Swift.h>
+#else
+#import "flutter_security_checker-Swift.h"
+#endif
 
 @implementation FlutterSecurityCheckerPlugin
 + (void)registerWithRegistrar:(NSObject<FlutterPluginRegistrar>*)registrar {
@@ -12,9 +16,9 @@
 }
 
 - (void)handleMethodCall:(FlutterMethodCall*)call result:(FlutterResult)result {
-  if ([@"isRooted" isEqualToString:call.method]) {
-    result([NSNumber numberWithBool:[JailBreakChecker isJailBroken]]);
-  } else if ([@"isRealDevice" isEqualToString:call.method]) {
+    if ([@"isRooted" isEqualToString:call.method]) {
+        result([NSNumber numberWithBool:[JailBreakChecker isJailBroken]]);
+    } else if ([@"isRealDevice" isEqualToString:call.method]) {
     result([NSNumber numberWithBool:!TARGET_OS_SIMULATOR]);
   } else if ([@"hasCorrectlyInstalled" isEqualToString:call.method]) {
     result([NSNumber numberWithBool:[IntegrityChecker isBinaryEncrypted]]);
